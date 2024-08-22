@@ -21,9 +21,9 @@ Unser Projekt ist eine Website, die es Nutzern ermöglicht, ihre schulischen Lei
 
 ## Technische Anforderungen
 
-- **Front-End**: HTML, CSS, JavaScript (ggf. mit Frameworks wie React oder Vue.js)
+- **Front-End**: HTML, CSS, JavaScript
 - **Back-End**: JavaScript (Node.js) und PHP mit Laravel
-- **Datenbank**: MySQL oder eine andere relationale Datenbank
+- **Datenbank**: MySQL 
 - **Sicherheit**: Implementierung von Zwei-Faktor-Authentifizierung (2FA)
 - **Kalender-Integration** (optional): Kalender-API oder eigene Implementierung zur Verwaltung von Lektionen und Prüfungen
 
