@@ -32,3 +32,20 @@ Unser Projekt ist eine Website, die es Nutzern ermöglicht, ihre schulischen Lei
 1. Klone das Repository:
    ```bash
    git clone https://github.com/dein-nutzername/schulprojekt.git
+2. PHP-Abhängigkeiten installieren:
+   ```bash
+   composer install
+3. JavaScript-Abhängigkeiten installieren:
+   ```bash
+   npm install
+4. Umgebungsdatei (.env) kopieren
+   Kopiere die Beispiel-Umgebungsdatei .env.example und passe sie an:
+   ```bash
+   cp .env.example .env
+5. App-Schlüssel generieren:
+   ```bash
+   php artisan key:generate
+6. Datenbank-Migrationen durchführen:
+   ```bash
+   php artisan migrate
+
