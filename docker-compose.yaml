@@ -1,0 +1,41 @@
+services:
+  laravel:
+    container_name: laravel
+    image: bitnami/laravel:latest
+    volumes:
+      - ./src:/app
+      - ./src/storage:/var/www/html/storage
+    ports:
+      - "8000:8000"  # Exponiert Port 8080 des Containers auf Port 8000 deines Hosts
+    environment:
+      DB_HOST: mysql_db
+      DB_PORT: 3306
+      DB_DATABASE: taravel_docker
+      DB_USERNAME: root
+      DB_PASSWORD: root
+    networks:
+      - laravel
+
+  mysql_db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: taravel_docker
+    ports:
+      - "3307:3306"  # Exponiert Port 3306 des Containers auf Port 3307 deines Hosts
+    networks:
+      - laravel
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - "9001:80"  # Exponiert Port 80 des Containers auf Port 9001 deines Hosts
+    environment:
+      PMA_HOST: mysql_db
+      PMA_PORT: 3306
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    driver: bridge
