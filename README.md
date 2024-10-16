@@ -1,5 +1,3 @@
-  README - Schulprojekt: Noten- und Stundenplan-Website body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f4f4f4; } h1, h2, h3 { color: #333; } pre { background-color: #eee; padding: 10px; border-radius: 5px; }
-
 README - Schulprojekt: Noten- und Stundenplan-Website
 =====================================================
 
