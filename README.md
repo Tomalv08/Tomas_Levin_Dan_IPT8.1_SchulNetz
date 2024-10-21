@@ -1,8 +1,8 @@
-README - Schulprojekt: Noten- und Stundenplan-Website
-=====================================================
+  README - Schulprojekt: Noten- und Stundenplan-Website
 
-Projektbeschreibung
--------------------
+# README - Schulprojekt: Noten- und Stundenplan-Website
+
+## Projektbeschreibung
 
 Unser Projekt ist eine Website, die es Nutzern ermöglicht, ihre schulischen Leistungen zu verwalten und zu überwachen. Die Hauptfunktionen der Website umfassen:
 
@@ -19,8 +19,7 @@ Unser Projekt ist eine Website, die es Nutzern ermöglicht, ihre schulischen Lei
     *   Möglichkeit zur Eintragung von Prüfungen, Zimmer- und Lektionenverschiebungen.
     *   Benachrichtigung über ausgefallene Lektionen und andere relevante Änderungen.
 
-Technische Anforderungen
-------------------------
+## Technische Anforderungen
 
 *   **Front-End:** HTML, CSS, JavaScript
 *   **Back-End:** PHP mit Laravel
@@ -28,8 +27,7 @@ Technische Anforderungen
 *   **Sicherheit:** Implementierung von Zwei-Faktor-Authentifizierung (2FA)
 *   **Kalender-Integration (optional):** Kalender-API oder eigene Implementierung zur Verwaltung von Lektionen und Prüfungen
 
-Schritte zum Klonen und Starten des Projekts
---------------------------------------------
+## Schritte zum Klonen und Starten des Projekts
 
 ### Voraussetzungen
 
@@ -41,62 +39,102 @@ Schritte zum Klonen und Starten des Projekts
 
 1.  **Repository klonen:**
     
-        git clone https://github.com/benutzername/repositoryname.git
+    ```
+    git clone https://github.com/benutzername/repositoryname.git
+    ```
     
 2.  **In das Projektverzeichnis wechseln:**
     
-        cd repositoryname
+    ```
+    cd repositoryname
+    ```
     
 3.  **Umgebungsdatei kopieren:**
     
-    Kopiere die Beispiel-Umgebungsdatei `.env.example` und passe sie an:
-    
-        cp .env.example .env
+    ```
+    cp .env.example .env
+    ```
     
 4.  **Docker-Container starten:**
     
-        docker-compose up -d
+    ```
+    docker-compose up -d
+    ```
     
-5.  **Mit dem Container interagieren:**
+    Hiermit wird der Container im Hintergrund ausgeführt.
     
-    Versuche, in den Container zu gelangen:
+5.  **Composer-Abhängigkeiten installieren:**
     
-        docker exec -it laravel bash
+    ```
+    docker-compose run --rm laravel composer install
+    ```
     
-    **Hinweis:** Falls du folgende Fehlermeldung erhältst:
+    Dieser Schritt muss unbedingt ausgeführt werden, bevor du mit dem Container interagierst.
     
-        Error response from daemon: Container [container-id] is not running
+6.  **Mit dem Container interagieren:**
     
-    bedeutet dies, dass der Laravel-Service nicht läuft. In diesem Fall musst du den Laravel-Container neu starten:
+    ```
+    docker exec -it laravel bash
+    ```
     
-        docker-compose up -d laravel
+    Da der Container im Hintergrund ausgeführt wird (mit `-d`), musst du diesen Befehl verwenden, um mit dem Container zu kommunizieren. Nach der erfolgreichen Ausführung dieses Befehls kannst du die Migrationen und Seeder durchführen.
     
-    Anschließend fahre mit Schritt 6 fort.
+7.  **Migrations und Seeder ausführen:**
     
-6.  **Composer installieren, wenn der Service "laravel" nicht läuft:**
+    Führe nach der Installation der Abhängigkeiten die Datenbankmigrationen und Seeder aus:
     
-    Falls du weiterhin Probleme hast oder Composer noch nicht installiert ist, kannst du einen temporären Container starten, um Composer auszuführen:
+    *   **Migrations ausführen:**
+        
+        ```
+        php artisan migrate
+        ```
+        
+    *   **Seeder ausführen:**
+        
+        ```
+        php artisan db:seed
+        ```
+        
+    *   **Migrations und Seeder gemeinsam ausführen:**
+        
+        ```
+        php artisan migrate --seed
+        ```
+        
+    *   **Migration Refresh:**
+        
+        ```
+        php artisan migrate:refresh
+        ```
+        
+        (Dieser Befehl setzt die Datenbank zurück und führt die Migrationen neu aus.)
+    *   **Migration Refresh mit Seed:**
+        
+        ```
+        php artisan migrate:refresh --seed
+        ```
+        
+        (Setzt die Datenbank zurück, führt Migrationen aus und seeded die Daten.)
+8.  **Anwendung im Browser aufrufen:**
     
-        docker-compose run --rm laravel composer install
+    Öffne den Browser und gehe zu **[http://localhost:8000](http://localhost:8000)**, um die Anwendung zu nutzen.
     
-7.  **Anwendung im Browser aufrufen:**
+9.  **Datenbankverwaltung:**
     
-    Öffne den Browser und gehe zu **http://localhost:8000**, um die Anwendung zu nutzen.
-    
-8.  **Datenbankverwaltung:**
-    
-    Um die Datenbank zu verwalten, gehe zu **http://localhost:9001** und verwende die folgenden Zugangsdaten:
+    Um die Datenbank zu verwalten, gehe zu **[http://localhost:9001](http://localhost:9001)** und verwende die folgenden Zugangsdaten:
     
     *   **Benutzername:** root
     *   **Passwort:** root
-9.  **Docker-Container stoppen:**
+10.  **Docker-Container stoppen:**
     
-        docker-compose down
+    ```
+    docker-compose down
+    ```
     
 
 ### Wichtige Hinweise
 
 *   Stelle sicher, dass Docker und Docker Compose korrekt installiert sind.
-*   Wenn der Container einen anderen Namen hat (z. B. `app` oder `web`), verwende diesen Namen anstelle von `laravel`.
+*   Wenn der Container einen anderen Namen hat (z.B. `app` oder `web`), verwende diesen Namen anstelle von `laravel`.
 *   Überprüfe die `docker-compose.yml` Datei auf spezifische Einstellungen und Umgebungsvariablen.
 *   Wenn es spezielle Anweisungen in der README-Datei gibt, sollten diese ebenfalls befolgt werden.
