@@ -9,6 +9,7 @@ use App\Models\User;
 
 class GradeController extends Controller
 {
+    // Alle Noten abrufen
     public function index(Request $request)
     {
         // Authentifizierten Benutzer abrufen
@@ -57,9 +58,7 @@ class GradeController extends Controller
             }
 
             // Rückgabe der Daten für den Lehrer
-            return response()->json([
-                'students' => $studentData,
-            ], 200);
+            return response()->json(['students' => $studentData], 200);
         } else {
             // Schüler: Nur eigene Noten abrufen
             $grades = $user->grades()->with('subject')->get()->unique(function ($item) {
@@ -89,4 +88,86 @@ class GradeController extends Controller
             ], 200);
         }
     }
+
+    // Neue Note hinzufügen
+    public function store(Request $request)
+{
+    // Authentifizierten Benutzer abrufen
+    $user = $request->user();
+
+    // Überprüfen, ob ein Benutzer authentifiziert ist
+    if (!$user) {
+        return response()->json(['error' => 'Unauthorized'], 401);
+    }
+
+    // Überprüfen, ob der Benutzer ein Lehrer ist
+    if ($user->is_teacher) {
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'subject_id' => 'required|exists:subjects,id',
+            'grade' => 'required|numeric|min:1|max:6',
+            'description' => 'nullable|string',
+            'weight' => 'nullable|integer|min:1',
+        ]);
+
+        $grade = Grade::create($request->all());
+
+        return response()->json($grade, 201);
+    } else {
+        return response()->json(['message' => 'Kein Lehrer.'], 403);
+    }
+}
+
+
+    // Note bearbeiten
+    public function update(Request $request, $id)
+    {
+        // Authentifizierten Benutzer abrufen
+        $user = $request->user();
+
+        // Überprüfen, ob ein Benutzer authentifiziert ist
+        if (!$user) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
+        // Überprüfen, ob der Benutzer ein Lehrer ist (is_teacher)
+        if ($user->is_teacher) {
+            $request->validate([
+                'grade' => 'sometimes|numeric|min:1|max:6',
+                'description' => 'sometimes|nullable|string',
+                'weight' => 'sometimes|nullable|integer|min:1',
+            ]);
+
+            $grade = Grade::findOrFail($id);
+            $grade->update($request->all());
+
+            return response()->json($grade, 200);
+        } else {
+            return response()->json(['message' => 'Kein Lehrer.'], 403);
+        }
+    }
+
+    // Note löschen
+    // Note löschen
+public function destroy(Request $request, $id)
+{
+    // Authentifizierten Benutzer abrufen
+    $user = $request->user();
+
+    // Überprüfen, ob ein Benutzer authentifiziert ist
+    if (!$user) {
+        return response()->json(['error' => 'Unauthorized'], 401);
+    }
+
+    // Überprüfen, ob der Benutzer ein Lehrer ist (is_teacher)
+    if ($user->is_teacher) {
+        $grade = Grade::findOrFail($id);
+        $grade->delete();
+
+        return response()->json(['message' => 'Grade deleted successfully.'], 200); // Angepasste Antwort mit JSON
+    } else {
+        return response()->json(['message' => 'Kein Lehrer.'], 403);
+    }
+}
+
 }

@@ -8,6 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Grade extends Model
 {
     use HasFactory;
+    // In App\Models\Grade.php
+    protected $fillable = [
+    'user_id',
+    'subject_id',
+    'grade',
+    'description',
+    'weight',
+];
+
 
     public function user()
     {
