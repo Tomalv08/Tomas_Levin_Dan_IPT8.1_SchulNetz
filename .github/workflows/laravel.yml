@@ -39,12 +39,15 @@ jobs:
 
     - name: Install Composer dependencies
       run: composer install --prefer-dist --no-progress --no-scripts --no-interaction
+      working-directory: ./src  # Hier wird das Arbeitsverzeichnis angepasst
 
     - name: Copy .env.example to .env
       run: cp .env.example .env
+      working-directory: ./src  # Hier wird das Arbeitsverzeichnis angepasst
 
     - name: Generate application key
       run: php artisan key:generate
+      working-directory: ./src  # Hier wird das Arbeitsverzeichnis angepasst
 
     - name: Set environment variables
       run: |
@@ -54,15 +57,16 @@ jobs:
         echo "DB_DATABASE=taravel_docker" >> .env
         echo "DB_USERNAME=root" >> .env
         echo "DB_PASSWORD=root" >> .env
+      working-directory: ./src  # Hier wird das Arbeitsverzeichnis angepasst
 
     - name: Run Linter
       run: composer run-script lint
+      working-directory: ./src  # Hier wird das Arbeitsverzeichnis angepasst
 
     - name: Run Tests
       run: php artisan test
+      working-directory: ./src  # Hier wird das Arbeitsverzeichnis angepasst
 
-    - name: Run PHP CS Fixer
+    - name: Run CS Fixer
       run: vendor/bin/php-cs-fixer fix --dry-run --diff
-
-    - name: Run Formatting Check
-      run: composer exec php-cs-fixer fix --dry-run --diff
+      working-directory: ./src  # Hier wird das Arbeitsverzeichnis angepasst
