@@ -1,0 +1,164 @@
+body {
+    font-family: 'SFProDisplay', sans-serif;
+    background-color: #F5F5F7;
+    color: #1D1D1F;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: white;
+    padding: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1D1D1F;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #6E6E73;
+}
+
+.search {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    outline: none;
+    margin-right: 10px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    background-color: #A9A9A9;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    margin-right: 5%;
+}
+
+.grades-table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.grades-table th, .grades-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #E5E5EA;
+    font-family: 'SFProDisplay', sans-serif;
+}
+
+.grades-table th {
+    background-color: #F9F9F9;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.grades-table td {
+    font-size: 0.95rem;
+}
+
+.expandable-row {
+    cursor: pointer;
+    background-color: #F7F7F8;
+}
+
+.expandable-row:hover {
+    background-color: #E5E5E7;
+}
+
+.expanded-content {
+    display: none;
+}
+
+.grade-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.grade-details-table th,
+.grade-details-table td {
+    padding: 15px;
+    text-align: left;
+    font-size: 1rem;
+    border-bottom: 1px solid #E5E5EA;
+    color: #1D1D1F;
+}
+
+.grade-details-table th {
+    background-color: #F9F9F9;
+    font-weight: bold;
+}
+
+.grade-details-table td {
+    font-size: 0.95rem;
+}
+
+.grade-details-table td .grade {
+    font-weight: bold;
+}
+
+.grade-details-table td .grade.good {
+    color: green;
+}
+
+.grade-details-table td .grade.medium {
+    color: orange;
+}
+
+.grade-details-table tr:last-child td {
+    border-bottom: none;
+}
+
+.grade-details-table tr:hover {
+    background-color: #F7F7F8;
+}
+
+
+.trend.up {
+    color: green;
+}
+
+.trend.down {
+    color: red;
+}
+
+.expanded-content {
+    display: none;
+    animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px;
+    }
+}

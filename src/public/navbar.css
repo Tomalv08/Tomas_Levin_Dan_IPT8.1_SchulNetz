@@ -1,0 +1,196 @@
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('fonts/SFPRODISPLAYBOLD.OTF') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('fonts/SFPRODISPLAYMEDIUM.OTF') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('fonts/SFPRODISPLAYBLACKITALIC.OTF') format('opentype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('fonts/SFPRODISPLAYHEAVYITALIC.OTF') format('opentype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('fonts/SFPRODISPLAYLIGHTITALIC.OTF') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('fonts/SFPRODISPLAYSEMIBOLDITALIC.OTF') format('opentype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('fonts/SFPRODISPLAYTHINITALIC.OTF') format('opentype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('fonts/SFPRODISPLAYULTRALIGHTITALIC.OTF') format('opentype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 4px 0;
+    font-family: 'SFProDisplay', sans-serif;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar .logo img {
+    height: 35px;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: #1d1d1f;
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-links a:hover {
+    color: #0071e3;
+}
+
+.navbar .nav-links .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px; 
+}
+
+/* Hamburger Menü */
+.navbar .menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.navbar .hamburger {
+    width: 30px;
+    height: 3px;
+    background-color: #1d1d1f;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.navbar .hamburger::before,
+.navbar .hamburger::after {
+    content: '';
+    width: 30px;
+    height: 3px;
+    background-color: #1d1d1f;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.navbar .hamburger::before {
+    top: -8px;
+}
+
+.navbar .hamburger::after {
+    top: 8px;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        background-color: #ffffff;
+        padding: 20px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 100;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        justify-content: flex-start; 
+        text-align: center;
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+    }
+
+    .navbar .menu-icon {
+        display: block;
+    }
+
+    .navbar .hamburger.open {
+        transform: rotate(45deg);
+    }
+
+    .navbar .hamburger.open::before {
+        transform: rotate(-90deg);
+        top: 0;
+    }
+
+    .navbar .hamburger.open::after {
+        transform: rotate(90deg);
+        top: 0;
+    }
+
+    .navbar .nav-links li {
+        text-align: center;
+        width: 100%;
+    }
+
+    .navbar .logo img {
+        height: 35px;
+    }
+}
