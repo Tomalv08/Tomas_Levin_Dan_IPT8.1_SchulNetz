@@ -9,12 +9,18 @@ Unser Projekt ist eine Website, die es Nutzern ermöglicht, ihre schulischen Lei
 1.  **Anmeldung und Registrierung**
     *   Benutzer können sich anmelden und registrieren.
     *   Unterstützung von Zwei-Faktor-Authentifizierung (2FA) für zusätzliche Sicherheit.
-2.  **Notenübersicht**
+2.  **Notenübersicht Schüler**
     *   Anzeige von Noten in verschiedenen Fächern.
     *   Berechnung und Darstellung des Notenschnitts.
     *   Anzeige des aktuellen Promotionsstandes.
     *   Detaillierte Übersicht einzelner Noten.
-3.  **Optionales Feature: Kalender**
+3.  **Notenübersicht Lehrer**
+    *   Verwaltung der Schüler in den zugewiesenen Klassen.
+    *   Notenvergabe und Bearbeitung einzelner Noten pro Schüler.
+    *   Verwaltung und Hinzufügen neuer Fächer, die in der Klasse unterrichtet werden.
+    *   Unterstützung einer Suchfunktion, um Schüler oder Fächer schnell zu finden..
+    *   Übersicht über alle Schüler und ihre E-Mail-Adressen sowie die Möglichkeit, Schüler hinzuzufügen oder zu entfernen.
+4.  **Optionales Feature: Kalender**
     *   Personenspezifischer Kalender, der eingetragene Lektionen anzeigt.
     *   Möglichkeit zur Eintragung von Prüfungen, Zimmer- und Lektionenverschiebungen.
     *   Benachrichtigung über ausgefallene Lektionen und andere relevante Änderungen.
@@ -118,14 +124,27 @@ Unser Projekt ist eine Website, die es Nutzern ermöglicht, ihre schulischen Lei
 8.  **Anwendung im Browser aufrufen:**
     
     Öffne den Browser und gehe zu **[http://localhost:8000](http://localhost:8000)**, um die Anwendung zu nutzen.
+
+    Lehrer Login-Daten:
+    E-Mail: Tomas_TeixeiraAlves@sluz.ch
+    Passwort: password123
     
-9.  **Datenbankverwaltung:**
+    Schüler Login-Daten:
+    E-Mail: Levin_Linder@sluz.ch
+    Passwort: password123
+    
+    E-Mail: Dan_Krummenacher@sluz.ch
+    Passwort: password123
+    
+10.  **Datenbankverwaltung:**
     
     Um die Datenbank zu verwalten, gehe zu **[http://localhost:9001](http://localhost:9001)** und verwende die folgenden Zugangsdaten:
     
     *   **Benutzername:** root
     *   **Passwort:** root
-10.  **Docker-Container stoppen:**
+    
+
+11.  **Docker-Container stoppen:**
     
     ```
     docker-compose down
