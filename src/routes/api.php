@@ -37,7 +37,7 @@ Route::middleware('auth:sanctum')->prefix('grades')->group(function () {
     Route::put('/{id}', [GradeController::class, 'update']); 
     Route::delete('/{id}', [GradeController::class, 'destroy']);
 });
-
+    
 Route::middleware('auth:sanctum')->get('/promotion/check', [PromotionController::class, 'checkPromotion']);
 Route::middleware('auth:sanctum')->get('/promotion/informatik', [PromotionController::class, 'checkInformatikPromotion']);
 
@@ -46,6 +46,8 @@ Route::middleware('auth:sanctum')->prefix("class")->group(function () {
     Route::post('/remove', [ClassController::class, 'removeStudents']);
     Route::get('/list', [ClassController::class, 'listStudents']);
 });
+// Route zur Schülersuche
+Route::middleware('auth:sanctum')->get('/students', [ClassController::class, 'Studentlist']);
 
 Route::middleware('auth:sanctum')->prefix('subjects')->group(function () {
     Route::get('/', [ManageSubjectController::class, 'index']); // Alle Fächer abrufen

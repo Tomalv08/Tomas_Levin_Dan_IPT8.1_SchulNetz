@@ -3,6 +3,9 @@ document.getElementById('login-form').addEventListener('submit', async function(
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
+    // Reset previous error messages
+    document.getElementById('error-message').textContent = '';
+
     try {
         const response = await fetch('/api/login', {
             method: 'POST',
@@ -19,9 +22,12 @@ document.getElementById('login-form').addEventListener('submit', async function(
             window.location.href = '/home';  // Weiterleitung zur Startseite
         } else {
             const errorData = await response.json();
-            document.getElementById('error-message').textContent = errorData.error || 'Login failed';
+            // Zeige Fehler an
+            document.getElementById('error-message').textContent = errorData.error || 'Login fehlgeschlagen';
+            document.getElementById('error-message').style.color = 'red';
         }
     } catch (error) {
-        document.getElementById('error-message').textContent = 'An error occurred. Please try again.';
+        document.getElementById('error-message').textContent = 'Ein Fehler ist aufgetreten. Bitte versuche es später erneut.';
+        document.getElementById('error-message').style.color = 'red';
     }
 });

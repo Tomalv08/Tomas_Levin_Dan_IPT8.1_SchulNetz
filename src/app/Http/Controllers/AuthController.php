@@ -34,15 +34,22 @@ class AuthController extends Controller
 
     // Login über die Webansicht
     public function webLogin(Request $request)
-    {
-        $credentials = $request->only('email', 'password');
+{
+    $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('/home');
+    if (Auth::attempt($credentials)) {
+        return redirect()->route('dashboard');
+    } else {
+        // Differenzierte Fehlermeldungen
+        $user = User::where('email', $request->email)->first();
+        if ($user) {
+            return redirect()->route('login')->withErrors('Das eingegebene Passwort ist falsch.');
         } else {
-            return redirect()->route('login')->withErrors('Login-Daten sind ungültig.');
+            return redirect()->route('login')->withErrors('Es gibt keinen Benutzer mit dieser E-Mail-Adresse.');
         }
     }
+}
+
 
     // Logout über die Webansicht
     public function webLogout(Request $request)
@@ -75,17 +82,18 @@ class AuthController extends Controller
 
     // Login über die API
     public function apiLogin(Request $request)
-    {
-        $credentials = $request->only('email', 'password');
+{
+    $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-            $token = $user->createToken('LaravelSanctumApp')->plainTextToken;
-            return response()->json(['token' => $token], 200);
-        } else {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
+    if (Auth::attempt($credentials)) {
+        $user = Auth::user();
+        $token = $user->createToken('LaravelSanctumApp')->plainTextToken;
+        return response()->json(['token' => $token], 200);
+    } else {
+        return response()->json(['error' => 'Falsche E-Mail-Adresse oder Passwort.'], 401);
     }
+}
+
 
     // Logout über die API
     public function apiLogout(Request $request)

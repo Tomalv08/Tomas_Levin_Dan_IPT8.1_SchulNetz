@@ -69,4 +69,10 @@ class ClassController extends Controller
 
         return response()->json(['students' => $students], 200);
     }
+    
+    public function Studentlist(Request $request) {
+        $students = User::where('is_teacher', false)->get(); // Nur Schüler
+        return response()->json($students);
+    }
+    
 }

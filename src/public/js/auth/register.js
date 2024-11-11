@@ -5,6 +5,9 @@ document.getElementById('register-form').addEventListener('submit', async functi
     const password = document.getElementById('password').value;
     const password_confirmation = document.getElementById('password_confirmation').value;
 
+    // Reset previous error messages
+    document.getElementById('error-message').textContent = '';
+
     try {
         const response = await fetch('/api/register', {
             method: 'POST',
@@ -20,8 +23,10 @@ document.getElementById('register-form').addEventListener('submit', async functi
         } else {
             const errorData = await response.json();
             document.getElementById('error-message').textContent = Object.values(errorData).join(', ');
+            document.getElementById('error-message').style.color = 'red';
         }
     } catch (error) {
-        document.getElementById('error-message').textContent = 'An error occurred. Please try again.';
+        document.getElementById('error-message').textContent = 'Ein Fehler ist aufgetreten. Bitte versuche es später erneut.';
+        document.getElementById('error-message').style.color = 'red';
     }
 });

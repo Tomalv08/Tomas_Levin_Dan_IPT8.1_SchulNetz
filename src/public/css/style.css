@@ -1,0 +1,739 @@
+/* Gemeinsame Stile für die Navbar */
+.navbar .nav-links {
+    justify-content: flex-end;
+}
+
+/* Grundlegende Stile für die Seite */
+html, body {
+    margin: 0;
+    font-family: 'SFProDisplay', sans-serif;
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    line-height: 1.6;
+    height: 100%; /* Sicherstellen, dass der Body die volle Höhe einnimmt */
+    display: flex;
+    flex-direction: column; /* Flexbox aktiviert für eine vertikale Anordnung */
+}
+
+
+/* Vergrößern des Headers */
+.header {
+    max-width: 800px; /* Breiterer Container */
+    padding: 70px 30px; /* Mehr Padding */
+    margin: 20px auto; /* Etwas mehr Abstand nach oben und unten */
+}
+
+/* Titel und Untertitel etwas größer machen */
+.header h1 {
+    font-size: 3rem; /* Größere Schriftgröße */
+}
+
+.header p {
+    font-size: 1.5rem; /* Größere Schriftgröße */
+    color: #6e6e73;
+}
+
+
+/* Hauptinhalt */
+.main-content {
+    flex: 1; /* Flexibel */
+    display: flex;
+    justify-content: center; /* Zentriert den Inhalt horizontal */
+    align-items: center; /* Zentriert den Inhalt vertikal */
+    text-align: center; /* Textzentrierung */
+    padding: 20px; /* Padding */
+}
+
+/* Login Container */
+.login-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center; /* Zentriert den Login-Container */
+    min-height: 70vh; /* Minimale Höhe */
+    padding-top: 3vh; /* Kleineren Abstand nach oben */
+}
+
+/* Login Formular */
+.login-form {
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 500px; /* Maximale Breite des Formulars */
+    background-color: transparent; /* Transparenter Hintergrund */
+}
+
+/* Formulargestaltung */
+.form-group {
+    margin-bottom: 1rem; /* Weniger Abstand zwischen Formularfeldern */
+}
+
+/* Eingabefelder */
+input[type="email"],
+input[type="password"],
+input[type="name"] {
+    width: 100%;
+    border-radius: 20px; /* Abgerundete Ecken */
+    padding: 0.6rem; /* Weniger Innenabstand */
+    border: 1px solid #ccc; /* Rahmenfarbe */
+    font-size: 1rem;
+    background-color: #f9f9f9; /* Hintergrundfarbe */
+    color: #1d1d1f;
+    box-sizing: border-box; /* Box-Modell */
+    transition: border-color 0.3s ease; /* Übergangseffekte */
+}
+
+/* Schaltflächen mit Abstand */
+.button-container {
+    display: flex;
+    justify-content: center; /* Zentriert die Buttons */
+    margin-top: 20px;
+}
+
+.submit-button {
+    font-family: 'SFProDisplay', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 16px 32px; /* Padding */
+    font-size: 1.2em; /* Schriftgröße */
+    border: 1px solid #333; /* Rahmenfarbe */
+    background-color: #333; /* Hintergrundfarbe */
+    color: #ffffff; /* Textfarbe */
+    border-radius: 8px; /* Abgerundete Ecken */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0 15px; /* Abstand zwischen den Buttons */
+}
+
+/* Fußzeilenstile */
+.footer {
+    text-align: center;
+    padding: 10px; /* Padding beibehalten */
+    margin-top: auto; /* Fügt einen automatischen oberen Margin hinzu, um den Footer nach unten zu schieben */
+    background-color: #fff; /* Hintergrundfarbe des Footers anpassen */
+}
+
+
+/* Navigation Anpassung */
+.navbar {
+    padding: 10px 20px; /* Weniger Padding für die Navigation */
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px; /* Maximale Breite */
+    margin: 0 auto; /* Zentriert den Container */
+    padding: 20px;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 2em; /* Kleinere Schriftgröße */
+    }
+
+    .login-form {
+        padding: 1rem; /* Weniger Padding auf kleinen Bildschirmen */
+    }
+
+    input[type="email"],
+    input[type="password"],
+    .submit-button {
+        padding: 0.9rem; /* Weniger Padding auf kleinen Bildschirmen */
+    }
+}
+
+/* Titel- und Untertitel-Stile */
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1D1D1F;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #6E6E73;
+}
+
+/* Such- und Filterbutton-Stile */
+.search {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    outline: none;
+    margin-right: 10px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    background-color: #A9A9A9;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    margin-right: 5%;
+}
+
+/* Notentabelle */
+.grades-table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.grades-table th, .grades-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #E5E5EA;
+    font-family: 'SFProDisplay', sans-serif;
+}
+
+.grades-table th {
+    background-color: #F9F9F9;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.grades-table td {
+    font-size: 0.95rem;
+}
+
+.expandable-row {
+    cursor: pointer;
+    background-color: #F7F7F8;
+}
+
+.expandable-row:hover {
+    background-color: #E5E5E7;
+}
+
+.expanded-content {
+    display: none;
+    animation: slideDown 0.3s ease-out forwards;
+}
+
+/* Notendetails-Tabelle */
+.grade-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.grade-details-table th,
+.grade-details-table td {
+    padding: 15px;
+    text-align: left;
+    font-size: 1rem;
+    border-bottom: 1px solid #E5E5EA;
+    color: #1D1D1F;
+}
+
+.grade-details-table th {
+    background-color: #F9F9F9;
+    font-weight: bold;
+}
+
+.grade-details-table td {
+    font-size: 0.95rem;
+}
+
+.grade-details-table td .grade {
+    font-weight: bold;
+}
+
+.grade-details-table td .grade.good {
+    color: green;
+}
+
+.grade-details-table td .grade.medium {
+    color: orange;
+}
+
+.grade-details-table td .grade.bad {
+    color: red;
+}
+
+.grade-details-table tr:last-child td {
+    border-bottom: none;
+}
+
+.grade-details-table tr:hover {
+    background-color: #F7F7F8;
+}
+
+/* Trend-Symbole */
+.trend.up {
+    color: green;
+}
+
+.trend.down {
+    color: red;
+}
+
+/* Slide-Down Animation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px;
+    }
+}
+.promotions-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    margin-top: 40px;
+}
+
+.promotions-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 12px 24px;
+    background-color: #d3d3d3; /* Hellgrauer Hintergrund */
+    color: #333; /* Dunkle Schriftfarbe */
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tab-button:hover {
+    background-color: #b0b0b0; /* Etwas dunkleres Grau beim Hover */
+    transform: scale(1.05);
+}
+
+.tab-button.active {
+    background-color: #a0a0a0; /* Aktive Farbe etwas dunkler */
+    color: #fff; /* Weiße Schrift auf aktivem Button */
+}
+
+/* Cards */
+.card {
+    display: none;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card.active {
+    display: block;
+}
+
+.promotions-subtitle {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #444;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.promotions-info {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.promotions-info strong {
+    color: #333;
+}
+
+
+
+/*ManageClass*/
+.student-management-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.add-student-form {
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px 0;
+}
+
+.student-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    outline: none;
+}
+
+.add-student-btn, .confirm-add-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    background-color: #A9A9A9;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.filter-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.filter-input {
+    width: 100%;
+}
+
+.table-container {
+    margin-top: 20px;
+}
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.student-table th, .student-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #E5E5EA;
+}
+
+.student-table th {
+    background-color: #F9F9F9;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.student-table td {
+    font-size: 0.95rem;
+}
+
+.delete-btn {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border: none;
+    background-color: #C0C0C0;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #A0A0A0;
+}
+
+
+.add-note-form {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.add-note-form input, .add-note-form select {
+    padding: 10px;
+    font-size: 1rem;
+    margin: 5px;
+    width: 250px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    outline: none;
+}
+
+.add-note-form .add-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #DADADA;
+    color: #1D1D1F;
+    cursor: pointer;
+}
+
+.search-container {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.search-container input {
+    padding: 10px;
+    font-size: 1rem;
+    width: 250px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    outline: none;
+}
+
+.note-list-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.student-notes {
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.student-notes h3 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.student-notes .note-table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.student-notes .note-table th, .student-notes .note-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #E5E5EA;
+}
+
+.student-notes .note-table th {
+    background-color: #F9F9F9;
+    font-weight: bold;
+}
+
+.student-notes .action-button {
+    padding: 5px 15px;
+    border-radius: 8px;
+    border: 1px solid #E0E0E0;
+    color: #1D1D1F;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.student-notes .action-button:hover {
+    background-color: #DADADA;
+}
+
+.edit-button {
+    background-color: #FFA500;
+}
+
+.delete-button {
+    background-color: #FF4040;
+}
+
+.edit-button:hover {
+    background-color: #FFB84D;
+}
+
+.delete-button:hover {
+    background-color: #FF7373;
+}
+
+.grade-text {
+    font-weight: bold;
+}
+
+.add-note-form select {
+    padding: 10px;
+    font-size: 1rem;
+    margin: 5px;
+    width: 250px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    outline: none;
+    appearance: none; 
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><polygon points="0,0 10,0 5,10" fill="%231D1D1F"/></svg>');  /* Fügt einen eigenen Pfeil ein */
+    background-position: right 10px center; 
+    background-repeat: no-repeat;
+    padding-right: 30px; 
+}
+
+
+.filter-container, .add-fach-form {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.filter-input {
+    padding: 10px;
+    width: 300px;
+    font-size: 1rem;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    outline: none;
+}
+
+.fach-table-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.fach-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.fach-table th, .fach-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #E5E5EA;
+}
+
+.fach-table th {
+    background-color: #F9F9F9;
+    font-weight: bold;
+}
+
+.fach-table td {
+    font-size: 0.95rem;
+}
+
+.add-fach-form {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-fach-form input, .add-fach-form select {
+    padding: 10px;
+    font-size: 1rem;
+    margin: 5px;
+    width: 250px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    outline: none;
+}
+
+.add-fach-form .add-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #DADADA;
+    color: #1D1D1F;
+    cursor: pointer;
+}
+
+.action-button {
+    padding: 5px 15px;
+    border-radius: 8px;
+    border: 1px solid #E0E0E0;
+    color: #1D1D1F;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.action-button:hover {
+    background-color: #F5F5F5;
+}
+
+.edit-input, .edit-select {
+    padding: 8px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+}
+
+
+.filter-container {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.filter-input {
+    padding: 10px;
+    width: 300px;
+    font-size: 1rem;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    outline: none;
+}
+
+.promotions-table-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.promotions-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.promotions-table th, .promotions-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #E5E5EA;
+}
+
+.promotions-table th {
+    background-color: #F9F9F9;
+    font-weight: bold;
+}
+
+.promotions-table td {
+    font-size: 0.95rem;
+}
